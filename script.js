@@ -68,7 +68,13 @@ function viderPanier() {
         console.log("Votre panier n'a pas été vidé");
     }
 }
-viderPanier(); // Appel de la fonction
+
+// Ajout du bouton avec l'évement de clic pour déclencher quand je veux la fonction viderPanier() (éviter d'avoir l'alerte confirm à chaque refresh)
+const ButtonTrigger = document.getElementById("clearConfirmAlertButton");
+
+ButtonTrigger.addEventListener("click", () => {
+    viderPanier(); // Appel de la fonction
+});
 
 
 
