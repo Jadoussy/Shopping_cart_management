@@ -55,6 +55,23 @@ ajouterArticle( { id: 6,  title: "barbe de noel", price: 14, amount:1, edition:"
 console.log("Panier après les changements :",getPanier());
 
 
+// Fonction viderPanier() qui utilise localStorage.clear() pour simuler la validation de la commande
+function viderPanier() {
+    // Alerte sur la page avec le choix entre "OK" et "Annuler"
+    let alerteValidation = confirm('Voulez vous vider votre panier ?');
+
+    if (alerteValidation) { // Si l'utlisateur a cliqué sur OK, on vide
+        localStorage.clear();
+        console.log("Le panier a été vidé : myPanier",getPanier());
+    }
+    else { // Si l'utlisateur a cliqué sur Annuler, on fait rien
+        console.log("Votre panier n'a pas été vidé");
+    }
+}
+viderPanier(); // Appel de la fonction
+
+
+
 
 
 
