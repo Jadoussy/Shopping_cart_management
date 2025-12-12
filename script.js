@@ -13,7 +13,7 @@ function getPanier() {
     if (panierStock === null || localStorage.length === 0 || localStorage === null ) {
         return []; 
     } else {      
-        console.log("panierStock : ",JSON.parse(panierStock));  
+        //console.log("panierStock : ",JSON.parse(panierStock));  
         return JSON.parse(panierStock);
     }
 }
@@ -31,7 +31,28 @@ const testpanier = [
 localStorage.setItem("myPanier", JSON.stringify(testpanier));
 
 
+// Fonction ajouterArticle(article) qui charge le panier existant,
+// ajoute le nouvel article au tableau,
+// puis sauvegarde le nouveau tableau (format JSON) dans le localStorage.
+function ajouterArticle(article) {
+    
+    // Ajout du nouvel article dans tableau (reprennant le contenu du localStorage)
+    let monPanierActuel = getPanier();
 
+    // Ajout de l'article à la fin du tableau
+    monPanierActuel.push(article);
+
+    // sauvegarde le nouveau tableau converti en JSON dans le localStorage
+    localStorage.setItem('myPanier', JSON.stringify(monPanierActuel));
+
+    console.log("L'élément à bien été ajouté :",article.title); 
+}
+console.log("Panier avant les changements :",getPanier());
+
+// Appel de la fonction et ajout de l'objet au myPanier
+ajouterArticle( { id: 6,  title: "barbe de noel", price: 14, amount:1, edition:"noel-2025" } );
+
+console.log("Panier après les changements :",getPanier());
 
 
 
